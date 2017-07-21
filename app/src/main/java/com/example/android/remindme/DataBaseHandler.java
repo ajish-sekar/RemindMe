@@ -27,6 +27,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String KEY_FREQ = "frequency";
     private static final String KEY_RUN = "run";
     private static final String KEY_ACTION = "action";
+    private static final String KEY_RADIUS = "radius";
+    private static final String KEY_WHEN = "remindwhen";
 
     public DataBaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -36,7 +38,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_REMINDER + "("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_NOTE + " TEXT NOT NULL,"
                 + KEY_LAT + " REAL NOT NULL," + KEY_LNG + " REAL NOT NULL," + KEY_ADDRESS + " TEXT NOT NULL,"+ KEY_FREQ + " INT NOT NULL,"+ KEY_RUN + " INT NOT NULL,"
-                + KEY_ACTION + " INT NOT NULL" + ")";
+                + KEY_ACTION + " INT NOT NULL," + KEY_RADIUS + " INT NOT NULL," + KEY_WHEN + " INT NOT NULL" + ")";
 
         db.execSQL(CREATE_CONTACTS_TABLE);
 
@@ -58,6 +60,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         values.put(KEY_FREQ,rem.getMfreq());
         values.put(KEY_RUN,rem.getMrun());
         values.put(KEY_ACTION,rem.getMaction());
+        values.put(KEY_RADIUS,rem.getMradius());
+        values.put(KEY_WHEN,rem.getMwhen());
         db.insert(TABLE_REMINDER, null, values);
         db.close();
 
@@ -90,7 +94,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 int run = cursor.getInt(cursor.getColumnIndex(KEY_RUN));
                 int action = cursor.getInt(cursor.getColumnIndex(KEY_ACTION));
                 String address = cursor.getString(cursor.getColumnIndex(KEY_ADDRESS));
-                Reminder rem = new Reminder(note,lat,lng,address,freq,run,action);
+                int radius = cursor.getInt(cursor.getColumnIndex(KEY_RADIUS));
+                int when = cursor.getInt(cursor.getColumnIndex(KEY_WHEN));
+                Reminder rem = new Reminder(note,lat,lng,address,freq,run,action,radius,when);
                 rem.setId(id);
                 reminderList.add(rem);
             } while (cursor.moveToNext());
@@ -113,6 +119,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         values.put(KEY_FREQ,rem.getMfreq());
         values.put(KEY_RUN,rem.getMrun());
         values.put(KEY_ACTION,rem.getMaction());
+        values.put(KEY_RADIUS,rem.getMradius());
+        values.put(KEY_WHEN,rem.getMwhen());
         db.update(TABLE_REMINDER,values,KEY_ID+"="+rem.getId(),null);
         db.close();
     }

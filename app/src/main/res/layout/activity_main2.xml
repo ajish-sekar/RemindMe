@@ -4,32 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    xmlns:tools="http://schemas.android.com/tools">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ff7961">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reminder :"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="#000000"/>
+
         <EditText
             android:id="@+id/reminder_add"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Enter note"
             android:textSize="18sp"
-            android:layout_marginLeft="4dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+            android:backgroundTint="@color/colorPrimaryDark"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Location :"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="#000000"/>
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
@@ -37,59 +33,68 @@
             android:visibility="gone"/>
         <TextView
             android:id="@+id/location_add"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             tools:text="asadasdadasdasdasdasda"
             android:textSize="18sp"
             android:text=""
             android:layout_gravity="fill"
-            android:layout_marginLeft="4dp"/>
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#000000"/>
         <Button
             android:id="@+id/choose_loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose"
             android:layout_marginLeft="3dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Frequency :"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:textColor="#000000"/>
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
         </Spinner>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Action :"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:textColor="#000000"/>
         <Spinner
             android:id="@+id/spinner_action"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
         </Spinner>
-    </LinearLayout>
-    <Button
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remind When"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:textColor="#000000"/>
+        <Spinner
+            android:id="@+id/spinner_when"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+
+   <!-- <Button
         android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Save"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="150dp"/> -->
 
 </LinearLayout>

@@ -1,10 +1,12 @@
 package com.example.android.remindme;
 
+import java.io.Serializable;
+
 /**
  * Created by Ajish on 16-07-2017.
  */
 
-public class Reminder {
+public class Reminder implements Serializable {
     private String mnote;
     private Double mlat;
     private Double mlng;
@@ -13,8 +15,10 @@ public class Reminder {
     private int mrun;
     private int id;
     private int maction;
+    private int mradius;
+    private int mwhen;
 
-    public Reminder(String note, Double lat, Double lng, String address, int freq, int run, int action ){
+    public Reminder(String note, Double lat, Double lng, String address, int freq, int run, int action,int radius, int when ){
         mnote = note;
         mlat = lat;
         mlng = lng;
@@ -22,6 +26,8 @@ public class Reminder {
         mfreq = freq;
         mrun = run;
         maction = action;
+        mradius = radius;
+        mwhen = when;
     }
 
     public String getMnote() {
@@ -62,5 +68,17 @@ public class Reminder {
 
     public int getMaction() {
         return maction;
+    }
+
+    public void setMradius(int mradius) {
+        this.mradius = mradius;
+    }
+
+    public int getMradius() {
+        return mradius;
+    }
+
+    public int getMwhen() {
+        return mwhen;
     }
 }

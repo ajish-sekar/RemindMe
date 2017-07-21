@@ -39,6 +39,11 @@ public class ReminderAdapter extends ArrayAdapter<Reminder> {
         location.setText(currentreminder.getMaddress());
         Log.v("Test", "" + currentreminder.getMlat());
 
+        if(currentreminder.getMrun()==0) {
+            TextView status = (TextView) listItemView.findViewById(R.id.status);
+            status.setText("Completed");
+        }
+
 
 
         return listItemView;
